@@ -1,0 +1,9 @@
+obj/
+*deps.json
+!MyMath.deps.json
+*.dll
+!MyMath.dll
+*.exe
+*.pdb
+!MyMath.pdb
+*.runtimeconfig.json
