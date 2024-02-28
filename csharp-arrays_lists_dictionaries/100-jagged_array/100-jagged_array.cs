@@ -12,6 +12,7 @@ class Program{
         for(int j = 0; j < JaggedArray[i].Length; j++){
             Console.Write(JaggedArray[i][j] + " ");
         }
+        Console.Write("$$");
         Console.WriteLine();
     }        
     }
