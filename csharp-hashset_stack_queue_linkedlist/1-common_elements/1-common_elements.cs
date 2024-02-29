@@ -1,11 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿using System;
+using System.Collections.Generic;
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>_1_common_elements</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+public class List
+{
+    public static List<int> CommonElements(List<int> list1, List<int> list2)
+    {
+        HashSet<int> set1 = new HashSet<int>(list1);
+        List<int> commonElements = new List<int>();
 
-</Project>
+        foreach (int element in list2)
+        {
+            if (set1.Contains(element))
+            {
+                commonElements.Add(element);
+            }
+        }
+
+        commonElements.Sort(); // Manually sort the list
+        return commonElements;
+    }
+}
