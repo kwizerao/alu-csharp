@@ -1,18 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections.Generic;
 
-class List{
+public class List{
 
-    public static List<int> DifferentElements(List<int> list1, List<int> list2){
-        HashSet<int> HashOne = new HashSet<int>(list1);
-        HashSet<int> HashTwo = new HashSet<int>(list2);
+    public static List<int> DifferentElements(List<int> list1, List<int> list2)
+    {
+        HashSet<int> uniqueElements = new HashSet<int>();
 
-        HashOne.SymmetricExceptWith(HashTwo);
-        int[] arrInt;
-        arrInt = HashOne.ToArray();
-        Array.Sort(arrInt);
-        HashOne.Clear();
-        HashOne.UnionWith(arrInt);
+        foreach (int item in list1)
+        {
+            if (!list2.Contains(item))
+            {
+                uniqueElements.Add(item);
+            }
+        }
 
-        return new List<int>(HashOne);
+        foreach (int item in list2)
+        {
+            if (!list1.Contains(item))
+            {
+                uniqueElements.Add(item);
+            }
+        }
+
+        List<int> resultList = new List<int>(uniqueElements);
+        resultList.Sort();
+        return resultList;
     }
 }
