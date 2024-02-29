@@ -1,14 +1,11 @@
-﻿using System.Collections;
+<Project Sdk="Microsoft.NET.Sdk">
 
-class List{
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>_1_common_elements</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-    public static List<int> CommonElements(List<int> list1, List<int> list2){
-        HashSet<int> HashOne = new HashSet<int>(list1);
-        HashSet<int> HashTwo = new HashSet<int>(list2);
-
-        HashTwo.IntersectWith(HashOne);
-        List<int> nList = new List<int>(HashTwo);
-
-        return nList;
-    }
-}
+</Project>
