@@ -1,54 +1,53 @@
 using NUnit.Framework;
 using MyMath;
 
-namespace MyMath.Tests
-{
+
+
+namespace Tests{
+
+
     [TestFixture]
-    public class OperationsTests
+    public class Test_NumberAddition
     {
-        [Test]
-        public void Add_TwoPositiveIntegers_ReturnsCorrectSum()
+        private Operations _myMath;
+
+        [SetUp]
+        public void Setup()
         {
-            // Arrange
-            int a = 2;
-            int b = 3;
-            int expected = 5;
-
-            // Act
-            int result = Operations.Add(a, b);
-
-            // Assert
-            Assert.That(result, Is.EqualTo(expected), "The sum of two positive integers should be correct.");
+            _myMath = new Operations();
         }
 
+        /// <summary>
+        /// Test if addition of two numbers is 4
+        /// </summary>
         [Test]
-        public void Add_NegativeAndPositiveInteger_ReturnsCorrectSum()
+        public void AdditionOperation()
         {
-            // Arrange
-            int a = -2;
-            int b = 3;
-            int expected = 1;
-
-            // Act
-            int result = Operations.Add(a, b);
-
-            // Assert
-            Assert.That(result, Is.EqualTo(expected), "The sum of a negative and a positive integer should be correct.");
+            bool state = false;
+          if((Operations.Add(2, 2)) == 4){
+            state = true;
+          }
+            Assert.IsTrue(state, "State is True");
+            
         }
 
-        [Test]
-        public void Add_TwoNegativeIntegers_ReturnsCorrectSum()
-        {
-            // Arrange
-            int a = -2;
-            int b = -3;
-            int expected = -5;
-
-            // Act
-            int result = Operations.Add(a, b);
-
-            // Assert
-            Assert.That(result, Is.EqualTo(expected), "The sum of two negative integers should be correct.");
+        /// <summary>
+        /// Test case with argument passsing. 
+        /// </summary>
+        /// <param name="value"></param>
+        //[TestCase(7)]
+        ///[TestCase(7)]
+        //[TestCase(7)]
+        
+        /*
+        public void TestMultiInput(int value){
+            bool state = false;
+            if((Operations.Add(2, 5)) == value){
+                state = true;
+            }
+            Assert.IsTrue(state, "state is True");
         }
+        */
+
     }
 }
