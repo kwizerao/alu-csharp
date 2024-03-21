@@ -3,6 +3,6 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net7.0</TargetFramework>
         <LangVersion>latest</LangVersion>
-        <DocumentationFile>bin/Debug/netcoreapp2.1/8-shape.xml</DocumentationFile>
+        <DocumentationFile>bin/Debug/netcoreapp2.1/9-shape.xml</DocumentationFile>
     </PropertyGroup>
     </Project>

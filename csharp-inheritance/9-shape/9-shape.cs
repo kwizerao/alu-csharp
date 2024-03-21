@@ -99,6 +99,14 @@ public class Square : Rectangle{
         }
     }
 
+    /// <summary>
+    /// Format string return for square type
+    /// </summary>
+    /// <returns>String</returns>
+     public override string ToString(){
+
+        return $"[Square] {size} / {size}";
+    }
 
 
 }
