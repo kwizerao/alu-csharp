@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>_18_matrix_matrix_mul</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DocumentationFile>bin/Debug/netcoreapp2.1/18-matrix_matrix_mul.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>
