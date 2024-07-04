@@ -1,153 +1,198 @@
 ﻿using System;
 
-/// <summary>
-/// Generic Queue class
-/// </summary>
-/// <typeparam name="T">Type parameter</typeparam>
-public class CustomQueue<T> {
 
-    /// <summary>
-    /// Node class representing an element in the queue
-    /// </summary>
-    public class Node {
+/// <summary>
+///public class queue
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class Queue<T>  {
+
+
+/// <summary>
+/// class Node
+/// </summary>
+    public class Node{
         /// <summary>
-        /// The value stored in the node
+        /// value of node
         /// </summary>
+
         public T? Value;
 
         /// <summary>
-        /// The reference to the next node in the queue
+        /// reference to the next node in queue
         /// </summary>
         public Node? Next;
 
         /// <summary>
-        /// Node constructor initializing the value
+        /// initializes values
         /// </summary>
-        /// <param name="value">Value to be stored in the node</param>
-        public Node(T value) {
+        /// <param name="value"></param>
+        public Node(T value){
             Value = value;
             Next = null;
         }
     }
 
-    private Node? head; // The front node of the queue
-    private Node? tail; // The rear node of the queue
-    private int count; // The count of nodes in the queue
-
     /// <summary>
-    /// Constructor to initialize the queue
+    /// head node
     /// </summary>
-    public CustomQueue() {
+    protected Node? head;
+    /// <summary>
+    /// tail node
+    /// </summary>
+    protected Node? tail;
+    // counts the number of nodes
+    int count;
+
+/// <summary>
+/// queue method
+/// </summary>
+    public Queue()
+    {
         head = null;
         tail = null;
         count = 0;
     }
 
-    /// <summary>
-    /// Method to add a new element to the rear of the queue
-    /// </summary>
-    /// <param name="value">Value to be added</param>
-    public void Enqueue(T? value) {
-        Node newNode = new Node(value!);
 
-        if (head == null) {
+/// <summary>
+/// enqueue method
+/// </summary>
+/// <param name="value"></param>
+    public void Enqueue(T? value){
+
+        Node newNode = new Node(value!);
+    
+        if(head == null){
             head = newNode;
             tail = newNode;
-        } else {
+        }else{
             tail!.Next = newNode;
             tail = newNode;
         }
-        count++;
+         count++;
     }
+/// <summary>
+/// dequeue method
+/// </summary>
+/// <returns></returns>
+public T? Dequeue(){
+     T? value;
 
-    /// <summary>
-    /// Method to remove and return the front element of the queue
-    /// </summary>
-    /// <returns>The value of the removed element</returns>
-    public T? Dequeue() {
-        if (count == 0) {
-            Console.WriteLine("Queue is empty");
-            return default(T);
-        }
-
-        T? value = head!.Value;
-        head = head.Next;
+     if(count == 0) {
+        Console.WriteLine("Queue is empty");
+        return default(T);
+     } else {
         count--;
 
-        return value;
+        value = head!.Value;
+        head = head.Next;
+     }
+     return value;
+}
+
+/// <summary>
+/// peek method that returns value of first node  w/o removing node
+/// </summary>
+/// <returns></returns>
+public T? Peek() 
+{
+    if (count == 0) {
+        Console.WriteLine("Queue is empty");
+        return default(T);
+    }
+    return head!.Value;
+}
+
+/// <summary>
+/// print method prints queue from head
+/// </summary>
+/// <returns></returns>
+public void Print() {
+    if (count == 0) {
+        Console.WriteLine("Queue is empty");
+        return;
     }
 
-    /// <summary>
-    /// Method to return the value of the front element without removing it
-    /// </summary>
-    /// <returns>The value of the front element</returns>
-    public T? Peek() {
-        if (count == 0) {
-            Console.WriteLine("Queue is empty");
-            return default(T);
-        }
-
-        return head!.Value;
+    for(int i = 0; i < count; i++){
+        Console.WriteLine(head!.Value);
+        head = head.Next;
     }
-
+}
     /// <summary>
-    /// Method to print all elements of the queue from the front
+    /// concatenate method
     /// </summary>
-    public void Print() {
-        if (count == 0) {
-            Console.WriteLine("Queue is empty");
-            return;
-        }
-
-        Node? current = head;
-        while (current != null) {
-            Console.WriteLine(current.Value);
-            current = current.Next;
-        }
-    }
-
-    /// <summary>
-    /// Method to concatenate all string or char elements in the queue
-    /// </summary>
-    /// <returns>A concatenated string of all elements</returns>
-    public string? Concatenate() {
-        if (count == 0) {
+    /// <returns></returns>
+    public String? Concatenate(){
+        if(count == 0){
             Console.WriteLine("Queue is empty");
             return null;
         }
 
-        if (CheckType() != typeof(string) && CheckType() != typeof(char)) {
+        if(CheckType() != typeof(String)  && CheckType() != typeof(Char)){
             Console.WriteLine("Concatenate() is for a queue of Strings or Chars");
             return null;
         }
 
-        string result = "";
-        Node? current = head;
+        String outputValue = "";
 
-        while (current != null) {
-            result += current.Value;
-            if (CheckType() == typeof(string)) {
-                result += " ";
+         for(int i = 0; i < count ; i ++){
+            
+           
+            outputValue += head!.Value;
+             if(CheckType() == typeof(string)){
+               outputValue += " "; 
             }
-            current = current.Next;
+            head = head!.Next;
         }
 
-        return result;
-    }
+        return outputValue;
 
-    /// <summary>
-    /// Method to return the type of elements stored in the queue
-    /// </summary>
-    /// <returns>The type of elements</returns>
-    public Type CheckType() {
+    }
+    
+
+
+/// <summary>
+/// checktype method
+/// </summary>
+
+    public Type CheckType(){
         return typeof(T);
     }
 
-    /// <summary>
-    /// Method to return the count of elements in the queue
-    /// </summary>
-    /// <returns>The count of elements</returns>
-    public int Count() {
+/// <summary>
+/// count method
+/// </summary>
+
+    public int Count(){
         return count;
+    } 
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Queue<string> myStrQ = new Queue<string>();
+
+        // myStrQ.Enqueue("hello");
+        // myStrQ.Enqueue("holberton");
+        // myStrQ.Enqueue("school");
+
+        // Console.WriteLine(myStrQ.Concatenate());
+
+        // Console.WriteLine("----------");
+
+        // Queue<int> myIntQ = new Queue<int>();
+        // myIntQ.Concatenate();
+
+        // Console.WriteLine("----------");
+
+        // Queue<char> myCharQ = new Queue<char>();
+        // myCharQ.Enqueue('a');
+        // myCharQ.Enqueue('b');
+        // myCharQ.Enqueue('c');
+        // Console.WriteLine(myCharQ.Concatenate());
     }
 }
