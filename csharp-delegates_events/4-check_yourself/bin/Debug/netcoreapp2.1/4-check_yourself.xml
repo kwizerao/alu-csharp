@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>4-check_yourself</name>
+    </assembly>
+    <members>
+        <member name="T:CurrentHPArgs">
+            <summary>
+            currenthpargs class inheriting from eventargs
+            </summary>
+        </member>
+        <member name="F:CurrentHPArgs.currentHp">
+            <summary>
+            currenthp
+            </summary>
+        </member>
+        <member name="M:CurrentHPArgs.#ctor(System.Single)">
+            <summary>
+            currenthpargs method
+            </summary>
+            <param name="newHp"></param>
+        </member>
+        <member name="T:Modifier">
+            <summary>
+            enum modifier
+            </summary>
+        </member>
+        <member name="F:Modifier.Weak">
+            <summary>
+            weak value
+            </summary>
+        </member>
+        <member name="F:Modifier.Base">
+            <summary>
+            base value
+            </summary>
+        </member>
+        <member name="F:Modifier.Strong">
+            <summary>
+            strong value
+            </summary>
+        </member>
+        <member name="T:CalculateModifier">
+            <summary>
+            calculatemodifier delegate
+            </summary>
+            <param name="baseValue"></param>
+            <param name="modifier"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Player">
+            <summary>
+            player class
+            </summary>
+        </member>
+        <member name="T:Player.CalculateHealth">
+            <summary>
+            calculatehealth delegate
+            </summary>
+            <param name="amount"></param>
+        </member>
+        <member name="M:Player.#ctor(System.String,System.Single)">
+            <summary>
+            player method
+            </summary>
+            <param name="name"></param>
+            <param name="maxHp"></param>
+        </member>
+        <member name="M:Player.TakeDamage(System.Single)">
+            <summary>
+            take damage method
+            </summary>
+            <param name="damage"></param>
+        </member>
+        <member name="M:Player.HealDamage(System.Single)">
+            <summary>
+            heldamage method
+            </summary>
+            <param name="heal"></param>
+        </member>
+        <member name="M:Player.ValidateHP(System.Single)">
+            <summary>
+            validatehp method
+            </summary>
+            <param name="newHp"></param>
+        </member>
+        <member name="M:Player.ApplyModifier(System.Single,Modifier)">
+            <summary>
+            applymodifier method
+            </summary>
+            <param name="baseValue"></param>
+            <param name="modifier"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Player.CheckStatus(System.Object,CurrentHPArgs)">
+            <summary>
+            checkstatus method
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Player.PrintHealth">
+            <summary>
+            printhealth mthod
+            </summary>
+        </member>
+    </members>
+</doc>
