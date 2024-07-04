@@ -1,48 +1,27 @@
 ﻿using System;
 
-/// <summary>
-/// currenthpargs class inheriting from eventargs
-/// </summary>
+
+
 public class CurrentHPArgs : EventArgs{
     
-    /// <summary>
-    /// currenthp
-    /// </summary>
     public float currentHp;
 
-/// <summary>
-/// currenthpargs method
-/// </summary>
-/// <param name="newHp"></param>
     public CurrentHPArgs(float newHp){
         currentHp = newHp;
     }
 }
+
+
 /// <summary>
 /// enum modifier
 /// </summary>
 public enum Modifier {
-    /// <summary>
-    /// weak value
-    /// </summary>
     Weak,
-
-    /// <summary>
-    /// base value
-    /// </summary>
     Base,
-
-    /// <summary>
-    /// strong value
-    /// </summary>
     Strong
 }
-/// <summary>
-/// calculatemodifier delegate
-/// </summary>
-/// <param name="baseValue"></param>
-/// <param name="modifier"></param>
-/// <returns></returns>
+
+//modifier delegate
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
 /// <summary>
@@ -50,26 +29,27 @@ public delegate float CalculateModifier(float baseValue, Modifier modifier);
 /// </summary>
 public class Player {
 
-   
+    //player name
     private string name = "Player";
 
+    // player max health
     private float maxHp = 100f;
 
-
+    // player standard health
     private float hp;
+
 
     EventHandler<CurrentHPArgs> HPCheck;
 
     private string status;
 
-   /// <summary>
-   /// calculatehealth delegate
-   /// </summary>
-   /// <param name="amount"></param>
+
+
+    // calculate health delegate
     delegate void CalculateHealth(float amount);
 
     /// <summary>
-    /// player method
+    /// player constructor
     /// </summary>
     /// <param name="name"></param>
     /// <param name="maxHp"></param>
@@ -90,11 +70,10 @@ public class Player {
 
  
 
-
-/// <summary>
-/// take damage method
-/// </summary>
-/// <param name="damage"></param>
+    /// <summary>
+    /// Damages the player
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(float damage){
         
         if(damage < 0){
@@ -107,7 +86,7 @@ public class Player {
     }
 
     /// <summary>
-    /// heldamage method
+    /// 
     /// </summary>
     /// <param name="heal"></param>
     public void HealDamage(float heal){
@@ -116,13 +95,14 @@ public class Player {
             Console.WriteLine($"{name} heals 0 HP!");
         }else{
             hp += heal;
-            Console.WriteLine($"{name} heals {Math.Round(heal,1)} HP!");
+            Console.WriteLine($"{name} heals {Math.Round(heal, 1)} HP!");
+           // Console.WriteLine(name + " heals " +  + " HP!");
         }
         ValidateHP(hp);
     }
 
 /// <summary>
-/// validatehp method
+/// validate the hp
 /// </summary>
 /// <param name="newHp"></param>
     public void ValidateHP(float newHp){
@@ -137,13 +117,12 @@ public class Player {
         HPCheck.Invoke(this, new CurrentHPArgs(hp));
     }
 
-    /// <summary>
-    /// applymodifier method
-    /// </summary>
-    /// <param name="baseValue"></param>
-    /// <param name="modifier"></param>
-    /// <returns></returns>
-
+/// <summary>
+/// modifier method 
+/// </summary>
+/// <param name="baseValue"></param>
+/// <param name="modifier"></param>
+/// <returns></returns>
     public float ApplyModifier(float baseValue, Modifier modifier){
 
         if(modifier == Modifier.Weak){
@@ -161,12 +140,12 @@ public class Player {
         return default(float);
     }
 
-/// <summary>
-/// checkstatus method
-/// </summary>
-/// <param name="sender"></param>
-/// <param name="e"></param>
-    private void CheckStatus(object sender, CurrentHPArgs e){
+    /// <summary>
+    /// checks the status
+    /// </summary>
+    /// <param name="Sender"></param>
+    /// <param name="e"></param>
+    private void CheckStatus(object? Sender, CurrentHPArgs e){
         if(e.currentHp == maxHp){
             Console.WriteLine($"{name} is in perfect health!");
         }
@@ -188,8 +167,9 @@ public class Player {
         }
     }
 
+
     /// <summary>
-    /// printhealth mthod
+    /// output current health state
     /// </summary>
     public void PrintHealth(){
         Console.WriteLine($"{name} has {hp} / {maxHp} health");
