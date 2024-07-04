@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>0-universal_health</name>
+    </assembly>
+    <members>
+        <member name="T:Player">
+            <summary>
+            class player
+            </summary>
+        </member>
+        <member name="M:Player.#ctor(System.String,System.Single)">
+            <summary>
+            player method
+            </summary>
+            <param name="name"></param>
+            <param name="maxHp"></param>
+        </member>
+        <member name="M:Player.PrintHealth">
+            <summary>
+            printhealth method
+            </summary>
+        </member>
+    </members>
+</doc>
