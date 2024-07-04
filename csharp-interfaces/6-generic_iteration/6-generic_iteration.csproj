@@ -6,8 +6,7 @@
     <RootNamespace>_6_generic_iteration</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>bin/Debug/netcoreapp2.1/6-generic_iteration.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
